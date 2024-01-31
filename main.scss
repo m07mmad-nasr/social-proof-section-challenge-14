@@ -1,0 +1,216 @@
+@use "./sass/layouts/global-rules";
+
+$Very-Dark-Magenta: hsl(300, 43%, 22%);
+$Soft-Pink: hsl(333, 80%, 67%);
+$Dark-Grayish-Magenta: hsl(303, 10%, 53%);
+$Light-Grayish-Magenta: hsl(300, 24%, 96%);
+$White: hsl(0, 0%, 100%);
+$font: "League Spartan", sans-serif;
+
+body {
+  background-color: $White;
+  background-image: url(./images/bg-pattern-top-mobile.svg),
+    url(./images/bg-pattern-bottom-mobile.svg);
+  background-repeat: no-repeat;
+  background-position: top left, bottom right;
+}
+
+main,
+main > section,
+section:nth-child(2) > article {
+  display: grid;
+}
+
+main {
+  grid-template-columns: 1fr;
+  grid-template-areas: "s1" "s2" "s3";
+  font-family: $font;
+  margin-top: 5rem;
+  padding-bottom: 5rem;
+  row-gap: 4rem;
+}
+
+main section:nth-child(1) {
+  grid-area: s1;
+  text-align: center;
+
+  justify-items: center;
+
+  h1 {
+    line-height: 2.5rem;
+    padding: 0 3rem;
+    font-size: 2.5rem;
+    color: $Very-Dark-Magenta;
+    max-width: 35rem;
+  }
+  p {
+    font-size: 1.2rem;
+    color: $Dark-Grayish-Magenta;
+    max-width: 40rem;
+    padding-top: 1.5rem;
+  }
+}
+
+main section:nth-child(2) {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 1.5rem;
+  article {
+    background-color: $Light-Grayish-Magenta;
+    width: 90%;
+    justify-items: center;
+    grid-template-areas: "ss" "ts";
+    border-radius: 1rem;
+
+    section:nth-child(1) {
+      display: flex;
+      grid-area: ss;
+      column-gap: 0.5rem;
+      img {
+        width: 1.5rem;
+      }
+      padding-top: 0.7rem;
+      padding-bottom: 0.5rem;
+    }
+
+    h2 {
+      grid-area: ts;
+      color: $Very-Dark-Magenta;
+      padding-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+main section:nth-child(3) {
+  grid-template-columns: 1fr;
+  row-gap: 1rem;
+  justify-items: center;
+  grid-area: s3;
+  article {
+    background-color: $Very-Dark-Magenta;
+    color: white;
+    max-width: 90%;
+    border-radius: 0.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "i s" "p p";
+    padding: 2rem;
+    align-items: center;
+    img {
+      grid-area: i;
+      margin-bottom: 2rem;
+      width: 3rem;
+      border-radius: 50%;
+      margin-right: 1rem;
+    }
+    section {
+      grid-area: s;
+      margin-bottom: 2rem;
+      h2 {
+        font-size: 1rem;
+      }
+      p {
+        line-height: 1rem;
+        font-size: 1rem;
+        color: $Soft-Pink;
+      }
+    }
+
+    p {
+      grid-area: p;
+    }
+  }
+}
+
+@media (min-width: 950px) {
+  body {
+    background-image: url(./images/bg-pattern-top-desktop.svg),
+      url(./images/bg-pattern-bottom-desktop.svg);
+    overflow-y: hidden;
+    display: grid;
+    justify-items: center;
+  }
+  main {
+    grid-template-columns: 35% 65%;
+    grid-template-areas: "s1 s2" "s3 s3";
+    row-gap: 4rem;
+    margin-bottom: 0;
+    max-width: 90%;
+
+    section:nth-child(1) {
+      justify-items: start;
+      text-align: left;
+      h1 {
+        margin: 0;
+        padding: 0;
+        font-size: 4rem;
+        line-height: 3rem;
+      }
+      p {
+        margin-top: 2rem;
+        padding: 0;
+        font-size: 1.5rem;
+      }
+    }
+
+    section:nth-child(2) {
+      align-self: end;
+      justify-items: end;
+      row-gap: 2rem;
+
+      article {
+        padding-right: 2rem;
+        width: 43rem;
+        height: 5rem;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "ss st";
+        align-items: center;
+
+        > section:nth-child(1) {
+          grid-area: ss;
+          padding: 0;
+          img {
+            width: 2rem;
+            height: 2rem;
+          }
+        }
+
+        h2 {
+          font-size: 1.5rem;
+          padding: 0;
+          grid-area: st;
+        }
+      }
+      article:nth-child(1) {
+        margin-right: 12rem;
+      }
+      article:nth-child(2) {
+        margin-right: 6rem;
+      }
+      article:nth-child(3) {
+        margin-right: 2rem;
+      }
+    }
+
+    section:nth-child(3) {
+      grid-template-columns: 1fr 1fr 1fr;
+      article {
+        grid-template-rows: 30% 70%;
+        align-items: flex-start;
+        padding: 2rem;
+        max-height: 20rem;
+        > p {
+          font-size: 1.7rem;
+        }
+      }
+      article:nth-child(2) {
+        margin-top: 3rem;
+      }
+
+      article:nth-child(3) {
+        margin-top: 6rem;
+      }
+    }
+  }
+}

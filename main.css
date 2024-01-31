@@ -1,0 +1,265 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*fonts varibles*/
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+body {
+  background-color: hsl(0, 0%, 100%);
+  background-image: url(./images/bg-pattern-top-mobile.svg), url(./images/bg-pattern-bottom-mobile.svg);
+  background-repeat: no-repeat;
+  background-position: top left, bottom right;
+}
+
+main,
+main > section,
+section:nth-child(2) > article {
+  display: grid;
+}
+
+main {
+  grid-template-columns: 1fr;
+  grid-template-areas: "s1" "s2" "s3";
+  font-family: "League Spartan", sans-serif;
+  margin-top: 5rem;
+  padding-bottom: 5rem;
+  row-gap: 4rem;
+}
+
+main section:nth-child(1) {
+  grid-area: s1;
+  text-align: center;
+  justify-items: center;
+}
+main section:nth-child(1) h1 {
+  line-height: 2.5rem;
+  padding: 0 3rem;
+  font-size: 2.5rem;
+  color: hsl(300, 43%, 22%);
+  max-width: 35rem;
+}
+main section:nth-child(1) p {
+  font-size: 1.2rem;
+  color: hsl(303, 10%, 53%);
+  max-width: 40rem;
+  padding-top: 1.5rem;
+}
+
+main section:nth-child(2) {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 1.5rem;
+}
+main section:nth-child(2) article {
+  background-color: hsl(300, 24%, 96%);
+  width: 90%;
+  justify-items: center;
+  grid-template-areas: "ss" "ts";
+  border-radius: 1rem;
+}
+main section:nth-child(2) article section:nth-child(1) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  grid-area: ss;
+  -webkit-column-gap: 0.5rem;
+     -moz-column-gap: 0.5rem;
+          column-gap: 0.5rem;
+  padding-top: 0.7rem;
+  padding-bottom: 0.5rem;
+}
+main section:nth-child(2) article section:nth-child(1) img {
+  width: 1.5rem;
+}
+main section:nth-child(2) article h2 {
+  grid-area: ts;
+  color: hsl(300, 43%, 22%);
+  padding-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+main section:nth-child(3) {
+  grid-template-columns: 1fr;
+  row-gap: 1rem;
+  justify-items: center;
+  grid-area: s3;
+}
+main section:nth-child(3) article {
+  background-color: hsl(300, 43%, 22%);
+  color: white;
+  max-width: 90%;
+  border-radius: 0.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "i s" "p p";
+  padding: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+main section:nth-child(3) article img {
+  grid-area: i;
+  margin-bottom: 2rem;
+  width: 3rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+main section:nth-child(3) article section {
+  grid-area: s;
+  margin-bottom: 2rem;
+}
+main section:nth-child(3) article section h2 {
+  font-size: 1rem;
+}
+main section:nth-child(3) article section p {
+  line-height: 1rem;
+  font-size: 1rem;
+  color: hsl(333, 80%, 67%);
+}
+main section:nth-child(3) article p {
+  grid-area: p;
+}
+
+@media (min-width: 950px) {
+  body {
+    background-image: url(./images/bg-pattern-top-desktop.svg), url(./images/bg-pattern-bottom-desktop.svg);
+    overflow-y: hidden;
+    display: grid;
+    justify-items: center;
+  }
+  main {
+    grid-template-columns: 35% 65%;
+    grid-template-areas: "s1 s2" "s3 s3";
+    row-gap: 4rem;
+    margin-bottom: 0;
+    max-width: 90%;
+  }
+  main section:nth-child(1) {
+    justify-items: start;
+    text-align: left;
+  }
+  main section:nth-child(1) h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 4rem;
+    line-height: 3rem;
+  }
+  main section:nth-child(1) p {
+    margin-top: 2rem;
+    padding: 0;
+    font-size: 1.5rem;
+  }
+  main section:nth-child(2) {
+    -ms-flex-item-align: end;
+        align-self: end;
+    justify-items: end;
+    row-gap: 2rem;
+  }
+  main section:nth-child(2) article {
+    padding-right: 2rem;
+    width: 43rem;
+    height: 5rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "ss st";
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  main section:nth-child(2) article > section:nth-child(1) {
+    grid-area: ss;
+    padding: 0;
+  }
+  main section:nth-child(2) article > section:nth-child(1) img {
+    width: 2rem;
+    height: 2rem;
+  }
+  main section:nth-child(2) article h2 {
+    font-size: 1.5rem;
+    padding: 0;
+    grid-area: st;
+  }
+  main section:nth-child(2) article:nth-child(1) {
+    margin-right: 12rem;
+  }
+  main section:nth-child(2) article:nth-child(2) {
+    margin-right: 6rem;
+  }
+  main section:nth-child(2) article:nth-child(3) {
+    margin-right: 2rem;
+  }
+  main section:nth-child(3) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  main section:nth-child(3) article {
+    grid-template-rows: 30% 70%;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    padding: 2rem;
+    max-height: 20rem;
+  }
+  main section:nth-child(3) article > p {
+    font-size: 1.7rem;
+  }
+  main section:nth-child(3) article:nth-child(2) {
+    margin-top: 3rem;
+  }
+  main section:nth-child(3) article:nth-child(3) {
+    margin-top: 6rem;
+  }
+}
